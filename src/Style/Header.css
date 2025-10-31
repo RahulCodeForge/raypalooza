@@ -1,0 +1,75 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding: 1rem 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 0, 200, 0.3);
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.logo {
+  font-family: "Orbitron", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  cursor: pointer;
+  text-shadow: 0 0 5px #ff00c8, 0 0 15px #ff40d1;
+}
+
+.logo img {
+  height: 60px; /* adjust size as needed */
+  width: auto; /* keeps aspect ratio */
+  object-fit: contain; /* ensures full logo visible */
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.05); /* subtle hover zoom */
+  filter: drop-shadow(0 0 10px #ff0099);
+}
+
+/* Optional glowing text if you add "RAY PALOOZA" later */
+.neon-text {
+  font-family: "Orbitron", sans-serif;
+  font-size: 24px;
+  color: #fff;
+  text-shadow: 0 0 5px #ff0099, 0 0 15px #ff0099, 0 0 30px #ff0099;
+}
+
+.logo-accent {
+  color: #ff00c8;
+  text-shadow: 0 0 10px #ff00c8, 0 0 20px #ff40d1;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: #eee;
+  font-size: 1rem;
+  font-family: "Orbitron", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 5px #ff00c8;
+}
+
+.nav-link:hover {
+  color: #ff00c8;
+  text-shadow: 0 0 10px #ff00c8, 0 0 25px #ff40d1;
+  transform: scale(1.1);
+}

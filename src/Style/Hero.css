@@ -1,0 +1,95 @@
+/* Hero Section */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at center, #000000, #0a0010, #000);
+  overflow: hidden;
+}
+
+/* Background animation (soft gradient movement) */
+.animated-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #ff0099 0%, #00e0ff 100%);
+  filter: blur(120px);
+  opacity: 0.15;
+  animation: bgFlow 10s ease-in-out infinite alternate;
+}
+
+@keyframes bgFlow {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.2) translate(-40px, 40px);
+  }
+}
+
+/* Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  padding: 60px 80px;
+  border: 2px solid rgba(255, 0, 153, 0.6); /* custom border */
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 25px rgba(255, 0, 153, 0.4);
+  transition: all 0.4s ease-in-out;
+}
+
+/* Optional hover animation for the border panel */
+.hero-content:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(255, 0, 153, 0.7);
+  border-color: #00e0ff;
+}
+
+/* Title */
+.hero-title {
+  font-size: 3rem;
+  font-family: "Orbitron", sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px #ff0099, 0 0 25px #ff0099;
+}
+
+/* Highlight word (RAY PALOOZA) */
+.highlight {
+  color: #ff0099;
+  text-shadow: 0 0 10px #ff0099, 0 0 30px #ff0099;
+}
+
+/* Subtitle */
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #ddd;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  line-height: 1.6;
+}
+
+/* Button */
+.hero-btn {
+  padding: 14px 36px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(90deg, #ff0099, #00e0ff);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 0, 153, 0.5);
+}
+
+.hero-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(255, 0, 153, 0.7), 0 0 50px rgba(0, 224, 255, 0.6);
+}

@@ -1,13 +1,158 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Montserrat", sans-serif;
+  background-color: #000;
+  color: #eee;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* === Animated Neon Water Wave Background === */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 50% 50%, #0a001a 10%, #000 70%);
+  z-index: -3;
+}
+
+/* Layer 1 – soft purple-pink water wave */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: repeating-linear-gradient(
+      -45deg,
+      rgba(255, 0, 200, 0.1) 0%,
+      rgba(255, 0, 200, 0.1) 5%,
+      rgba(0, 0, 0, 0.1) 5%,
+      rgba(0, 0, 0, 0.1) 10%
+    ),
+    radial-gradient(circle at 50% 70%, rgba(255, 0, 200, 0.25), transparent 80%);
+  mix-blend-mode: screen;
+  background-size: 400% 400%;
+  animation: waterWave 20s ease-in-out infinite;
+  filter: blur(30px) brightness(0.9);
+  z-index: -2;
+}
+
+/* Layer 2 – subtle wave depth shimmer */
+body::before {
+  background: radial-gradient(circle at 50% 80%, #000 20%, #090016 70%);
+  animation: deepWave 30s ease-in-out infinite alternate;
+  z-index: -4;
+}
+
+/* === Wave Animations === */
+@keyframes waterWave {
+  0% {
+    background-position: 0% 50%;
+    transform: scale(1);
+  }
+  25% {
+    background-position: 25% 55%;
+    transform: scale(1.03);
+  }
+  50% {
+    background-position: 50% 45%;
+    transform: scale(1);
+  }
+  75% {
+    background-position: 75% 55%;
+    transform: scale(1.02);
+  }
+  100% {
+    background-position: 100% 50%;
+    transform: scale(1);
+  }
+}
+
+@keyframes deepWave {
+  0% {
+    filter: hue-rotate(0deg) brightness(1);
+  }
+  50% {
+    filter: hue-rotate(60deg) brightness(1.1);
+  }
+  100% {
+    filter: hue-rotate(120deg) brightness(1);
+  }
+}
+
+/* Glassmorphism panels */
+.glassmorphism-panel {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 0, 200, 0.2);
+  box-shadow: 0 0 30px #ff00c8;
+  backdrop-filter: blur(15px);
+  padding: 2rem;
+}
+
+/* Glassmorphism outline */
+.glassmorphism-outline {
+  border: 2px solid transparent;
+  border-image: linear-gradient(45deg, #ff00c8, #ff40d1, #ff00c8);
+  border-image-slice: 1;
+  box-shadow: 0 0 40px #ff00c8;
+  backdrop-filter: blur(20px);
+  padding: 2rem 3rem;
+  border-radius: 20px;
+}
+
+/* Neon text styles */
+.neon-text {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 900;
+  color: #ff00c8;
+  text-shadow: 0 0 5px #ff00c8, 0 0 20px #ff40d1, 0 0 30px #ff00c8;
+}
+
+.neon-outline-text {
+  font-family: "Orbitron", sans-serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: transparent;
+  -webkit-text-stroke: 1px #ff00c8;
+  text-shadow: 0 0 5px #ff00c8, 0 0 20px #ff40d1, 0 0 30px #ff00c8;
+  margin-bottom: 2rem;
+  user-select: none;
+}
+
+/* Neon glow button */
+.neon-glow {
+  background: #ff00c8;
+  border: none;
+  color: black;
+  border-radius: 50px;
+  padding: 1rem 3rem;
+  font-weight: 700;
+  font-family: "Orbitron", sans-serif;
+  box-shadow: 0 0 10px #ff00c8, 0 0 20px #ff40d1 inset, 0 0 30px #ff00c8 inset;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.neon-glow:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px #ff40d1, 0 0 40px #ff00c8 inset;
+}
+
+/* Section padding */
+section {
+  padding: 6rem 3rem;
+}
+
+/* Responsive container */
+section > div,
+section > form {
+  margin: 0 auto;
+  max-width: 1100px;
 }

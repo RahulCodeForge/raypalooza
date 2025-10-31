@@ -1,0 +1,25 @@
+.contact-section {
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+}
+
+.contact-input,
+.contact-textarea {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ff00c8;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 1rem;
+}
+
+.submit-button {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
