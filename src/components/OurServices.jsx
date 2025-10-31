@@ -1,97 +1,48 @@
-import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+// src/components/OurServices.jsx
+import React from "react";
+import { motion } from "framer-motion";
 import "../Style/OurServices.css";
 
 const services = [
   {
-    name: "Weddings",
-    img: "/images/111.jpg",
-    desc: "Luxury wedding planning with breathtaking themes and decor.",
+    title: "Luxury Weddings",
+    desc: "From decor to coordination — we craft elegant and unforgettable celebrations.",
   },
   {
-    name: "Corporate Events",
-    img: "/images/01.jpg",
-    desc: "Professional event management for meetings, conferences, and launches.",
+    title: "Corporate Events",
+    desc: "Make your brand stand out with professional event management and creative production.",
   },
   {
-    name: "Concerts",
-    img: "/images/concert.jpg",
-    desc: "Power-packed live performances, stage setups, and artist management.",
-  },
-  {
-    name: "Birthday Parties",
-    img: "/images/birthday.jpg",
-    desc: "Creative and colorful themes for memorable birthday celebrations.",
-  },
-  {
-    name: "Destination Events",
-    img: "/images/destination.jpg",
-    desc: "Plan your dream event at exotic destinations with our expert team.",
-  },
-  {
-    name: "Fashion Shows",
-    img: "/images/fashion.jpg",
-    desc: "Elegant production and runway experiences tailored for your brand.",
+    title: "Music & Parties",
+    desc: "DJ nights, concerts, and high-energy parties — we bring rhythm to your stage.",
   },
 ];
 
 const OurServices = () => {
-  const [current, setCurrent] = useState(0);
-  const total = services.length;
-  const visibleCount = 3;
-
-  // Auto-slide every 4 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % total);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [total]);
-
-  // Get visible items (looping effect)
-  const visibleItems = [];
-  for (let i = 0; i < visibleCount; i++) {
-    visibleItems.push(services[(current + i) % total]);
-  }
-
   return (
     <section className="services-section">
       <motion.h2
-        className="section-title neon-outline-text"
+        className="section-title"
         initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
       >
-        Our Services
+        Our <span className="highlight">Services</span>
       </motion.h2>
 
-      <div className="carousel-container">
-        <AnimatePresence>
-          {visibleItems.map((service, i) => (
-            <motion.div
-              key={service.name}
-              className="service-card glassmorphism-panel"
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.8 }}
-              whileHover={{
-                scale: 1.07,
-                boxShadow: "0 0 30px #ff00c8",
-              }}
-            >
-              <div className="service-image-wrapper">
-                <img
-                  src={service.img}
-                  alt={service.name}
-                  className="service-img"
-                />
-              </div>
-              <h3 className="service-name neon-text">{service.name}</h3>
-              <p className="service-desc">{service.desc}</p>
-            </motion.div>
-          ))}
-        </AnimatePresence>
+      <div className="services-container">
+        {services.map((service, index) => (
+          <motion.div
+            className="service-card"
+            key={index}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.3, duration: 0.6 }}
+          >
+            <h3>{service.title}</h3>
+            <p>{service.desc}</p>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

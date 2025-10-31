@@ -1,26 +1,30 @@
 import React from "react";
+import Header from "./components/Header";
 import Hero from "./components/Hero";
 import AboutUs from "./components/AboutUs";
 import OurServices from "./components/OurServices";
 import Gallery from "./components/Gallery";
 import Testimonials from "./components/Testimonials";
-import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
+import "./index.css";
+import "./Style/Common.css";
+import BookEventPopup from "./components/BookEventPopup";
+// import ContactSection from "./components/Contact";
 
-const App = () => {
+export default function App() {
   return (
     <>
       <Header />
-      <Hero />
-      <AboutUs />
-      <OurServices />
-      <Gallery />
-      <Testimonials />
-      <Contact />
+      <main>
+        <Hero />
+        <AboutUs />
+        <OurServices />
+        <Gallery />
+        <Testimonials />
+        {/* <ContactSection /> */}
+      </main>
       <Footer />
+      <BookEventPopup />
     </>
   );
-};
-
-export default App;
+}

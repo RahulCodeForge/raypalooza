@@ -1,21 +1,23 @@
+// src/components/Testimonials.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import "../Style/Testimonials.css";
 
 const testimonials = [
   {
-    name: "John Doe",
+    name: "Priya Sharma",
     feedback:
-      "RAY PALOOZA made our wedding unforgettable! Absolutely stunning experience.",
+      "Ray Palooza made my wedding magical! Every detail was perfect — elegant and dreamy.",
   },
   {
-    name: "Sarah Lee",
+    name: "Rahul Verma",
     feedback:
-      "Professional and futuristic event management for our corporate launch.",
+      "Our corporate event was next level! Amazing stage setup and flawless management.",
   },
   {
-    name: "Mike Johnson",
-    feedback: "The music show was electrifying, thanks to the amazing team.",
+    name: "Aisha Khan",
+    feedback:
+      "Loved the energy they bring! The lighting and vibe made the party unforgettable!",
   },
 ];
 
@@ -23,27 +25,25 @@ const Testimonials = () => {
   return (
     <section className="testimonials-section">
       <motion.h2
-        className="section-title neon-outline-text"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        className="section-title"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
       >
-        Testimonials
+        Client <span className="highlight">Testimonials</span>
       </motion.h2>
 
-      <div className="testimonial-cards">
+      <div className="testimonials-container">
         {testimonials.map((t, i) => (
           <motion.div
-            key={t.name}
-            className="testimonial-card neon-pink-border"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ delay: 0.3 * i, duration: 0.5 }}
-            whileHover={{ boxShadow: "0 0 25px #ff00c8" }}
+            className="testimonial-card"
+            key={i}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.3, duration: 0.6 }}
           >
-            <p className="feedback">"{t.feedback}"</p>
-            <p className="client-name">- {t.name}</p>
+            <p>"{t.feedback}"</p>
+            <h4>- {t.name}</h4>
           </motion.div>
         ))}
       </div>

@@ -1,50 +1,41 @@
+// src/components/Gallery.jsx
 import React from "react";
 import { motion } from "framer-motion";
 import "../Style/Gallery.css";
 
-const galleryImages = [
-  "/images/01.jpg",
-  "/images/event2.jpg",
-  "/images/event3.jpg",
-  "/images/event4.jpg",
-  "/images/event5.jpg",
-  "/images/event6.jpg",
-];
-
 const Gallery = () => {
+  const images = [
+    "/assets/event1.jpg",
+    "/assets/event2.jpg",
+    "/assets/event3.jpg",
+    "/assets/event4.jpg",
+    "/assets/event5.jpg",
+    "/assets/event6.jpg",
+  ];
+
   return (
     <section className="gallery-section">
       <motion.h2
-        className="section-title neon-outline-text"
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
+        className="section-title"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
       >
-        Gallery / Highlights
+        Our <span className="highlight">Gallery</span>
       </motion.h2>
 
-      <div className="snake-gallery-container">
-        {/* Infinite scrolling motion */}
-        <motion.div
-          className="snake-gallery-track"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            repeat: Infinity,
-            duration: 20,
-            ease: "linear",
-          }}
-        >
-          {[...galleryImages, ...galleryImages].map((img, i) => (
-            <motion.div
-              className="snake-image-wrapper"
-              key={i}
-              whileHover={{ scale: 1.08, rotate: 2 }}
-              transition={{ duration: 0.4 }}
-            >
-              <img src={img} alt={`Event ${i + 1}`} className="snake-image" />
-            </motion.div>
-          ))}
-        </motion.div>
+      <div className="gallery-grid">
+        {images.map((src, i) => (
+          <motion.div
+            className="gallery-item"
+            key={i}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ delay: i * 0.2, duration: 0.6 }}
+          >
+            <img src={src} alt={`Event ${i}`} />
+          </motion.div>
+        ))}
       </div>
     </section>
   );
