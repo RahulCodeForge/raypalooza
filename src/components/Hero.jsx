@@ -40,7 +40,7 @@ const Hero = () => {
       {/* === Background Video === */}
       <video
         className="hero-bg-video"
-        src="./video.mp4"
+        src="/Video.mp4"
         autoPlay
         loop
         muted
