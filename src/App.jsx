@@ -8,7 +8,8 @@ import Testimonials from "./components/Testimonials";
 import Footer from "./components/Footer";
 import "./index.css";
 import "./Style/Common.css";
-import BookEventPopup from "./components/BookEventPopup";
+// import BookEventPopup from "./components/BookEventPopup";
+import BookEvent from "./components/Bookevent";
 // import ContactSection from "./components/Contact";
 
 export default function App() {
@@ -22,9 +23,10 @@ export default function App() {
         <Gallery />
         <Testimonials />
         {/* <ContactSection /> */}
+        <BookEvent />
       </main>
       <Footer />
-      <BookEventPopup />
+      {/* <BookEventPopup /> */}
     </>
   );
 }
